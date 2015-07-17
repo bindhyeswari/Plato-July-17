@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+
+        // closure --> function object + scope of the function when it was defined
+
+        // [object Object]
+
+        function createClosure() {
+
+            var x = 10;
+
+            return function test() {
+                var z = 10;
+                return x++;
+            }
+        }
+
+        var fx = createClosure(); //
+        var fy = createClosure(); //
+
+        console.log(fx === fy);
+
+        console.log(fx()); // 10
+        console.log(fx()); // 11
+        console.log(fx()); // 12
+
+        console.log(fy());
+        console.log(fy());
+        console.log(fy());
+
+        // console.log(Object.prototype.toString.call(fx));
+
+
+
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

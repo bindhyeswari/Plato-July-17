@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+
+        var sum = function (x, y) {
+            console.log(this);
+            console.log(x + y);
+            console.log('==========');
+            return x + y;
+        };
+
+        var square = function (x) {
+            console.log(this);
+            console.log(x * x);
+            console.log('==========');
+            return x * x;
+        };
+        sum(1, 2);
+
+        sum.call(window, 1, 2); // invocation context, parameter1, parameter2, .....
+        sum.apply(window, [1, 2]); // invocation context, parameter1, parameter2, .....
+
+        var fn = sum.bind(window, 1, 2); // fn --> bound function
+        fn();
+
+        function returnBoundFunction() {
+            // function, invocation context, parameters
+            // access the arguments
+            var args = Array.prototype.slice.call(arguments);
+
+            var fn = args.shift();
+            var context_for_fn = args.shift();
+            console.log(fn);
+            console.log(context_for_fn);
+            console.log(args);
+
+            // [context].concat(args)
+
+            // .apply --> (context, [ .. array of parameters ..])
+
+            return fn.bind.apply(fn, [context_for_fn].concat(args));
+        }
+
+        var bound_sum = returnBoundFunction(sum, window, 1, 2);
+        console.log('invoking bound_sum .... ');
+        bound_sum();
+        var bound_square = returnBoundFunction(square, window, 16);
+        console.log('invoking bound_sum .... ');
+        bound_square();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

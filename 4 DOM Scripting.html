@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+
+
+
+    </script>
+</head>
+<body>
+
+<ul>
+    <li>Natalie</li>
+    <li>Hamid</li>
+    <li>Likhita</li>
+    <li>Ronak</li>
+</ul>
+
+<script>
+
+    var ul = document.querySelector('ul');
+    console.log(ul.children); // firstElementChild, lastElementChild
+    console.log(ul.childNodes[0].nodeType); // firstChild, lastChild
+    console.log(ul.firstChild.nodeType);
+    console.log(ul.childNodes[1].nodeType);
+
+    console.log(ul.firstElementChild.firstChild.nodeValue);
+
+    console.log(ul.textContent);
+    console.log(ul.innerHTML);
+
+    var json = []; // [{ title: "The Shawshank Redemption", release: "(1966)" }. {} , {}]
+
+    var trs = []; // document.querySelectorAll('tbody.lister-list > tr');
+    for (var i = 0; i < trs.length; i++) {
+        var tr = trs[0];
+        var td_title = tr.children[1];
+        var hyperlink = td_title.firstElementChild;
+    }
+
+</script>
+</body>
+</html>
